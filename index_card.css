@@ -1,0 +1,108 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px; /* Уменьшите пробел между карточками для более компактного вида */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #4d4d4d; /* Светлая граница */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Тень для глубины */
+    overflow: hidden; /* Скрываем все, что выходит за пределы */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный эффект при наведении */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Поднимаем карточку при наведении */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Яркая тень при наведении */
+}
+
+.card__top {
+    position: relative;
+}
+
+.card__top img {
+    width: 100%;
+    height: auto; /* Изменено на auto для сохранения пропорций */
+    max-height: 200px; /* Ограничение максимальной высоты */
+    object-fit: contain; /* Изображение будет полностью видно */
+}
+
+.card__label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: #ff6633; /* Яркая метка скидки */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.card__bottom {
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Вертикальное выравнивание содержимого */
+}
+
+.card__title {
+    font-size: 18px; /* Уменьшите размер заголовка для лучшей читаемости */
+    color: #ffffff; /* Белый текст заголовка */
+    margin: 5px 0;
+    line-height: 1.2; /* Улучшение интервалов между строками */
+}
+
+.card__text {
+    color: #bfbfbf; /* Светлый цвет текста */
+    margin-bottom: 10px;
+    line-height: 1.5; /* Увеличение высоты строки для лучшей читаемости */
+}
+
+.card__prices {
+    display: flex;
+    justify-content: space-between; /* Размещаем цены по краям */
+    padding: 0 10px;
+}
+
+.card__price {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.card__price--discount {
+    color: #ff6633; /* Цвет для цены со скидкой */
+}
+
+.card__price--common {
+    text-decoration: line-through; /* Зачеркнутая цена */
+    color: #bfbfbf; /* Цвет для обычной цены */
+}
+
+a.btn.card__add {
+    display: block;
+    background-color: black; /* Черный цвет кнопки */
+    color: #ffffff; /* Убедитесь, что текст кнопки белого цвета */
+    text-align: center;
+    padding: 12px; /* Увеличен отступ для лучшего восприятия */
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Прижимает кнопку к низу карточки */
+    margin-left: 10px; /* Увеличено расстояние между ценами и кнопкой */
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+a.btn.card__add:hover {
+    background-color: #ff6633; /* Изменение цвета кнопки на яркий при наведении */
+    color: #fff; /* Убедитесь, что текст остается белым при наведении */
+}
+@media (max-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr; /* Одна колонка на маленьких экранах */
+    }
+}

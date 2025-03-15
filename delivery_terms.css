@@ -1,0 +1,25 @@
+.delivery-product-terms-in-stock {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: absolute;
+    top: 70%;
+    right: 10%;
+    width: 400px;
+}
+.delivery-product-terms {
+    display: flex; /* Используем Flexbox для горизонтального выравнивания */
+    flex-direction: row;
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: center; /* Выравниваем элементы по центру по вертикали */
+    margin-bottom: 15px;
+}
+.delivery-product-terms-caption {
+    font-size: 18px;
+    font-weight: bold;
+}
+.green {
+    color: #28a745; /* Зеленый цвет */
+    font-weight: bold;
+}

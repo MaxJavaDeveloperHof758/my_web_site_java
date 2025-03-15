@@ -1,0 +1,88 @@
+.buy-now {
+    position: absolute;
+    top: 60%;
+    right: 10%;
+    width: 400px;
+    height: 60px;
+    background-color: white;
+    color: orange; /* Цвет текста */
+    border: 1px solid orange;
+    border-radius: 5px; /* Скругленные углы */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    font-size: 20px; /* Размер шрифта */
+    font-weight: bold;
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s; /* Плавный переход */
+}
+
+.buy-now:hover {
+    background-color: white;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Открывается поверх контента */
+    z-index: 1; /* На переднем плане */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Прокрутка, если нужно */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Цвет фона модального окна */
+    margin: 15% auto; /* Отступы */
+    padding: 20px;
+    border: 1px solid #888; /* Граница */
+    width: 80%; /* Ширина модального окна */
+    max-width: 500px; /* Максимальная ширина */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+.close {
+    color: #aaa; /* Цвет кнопки закрытия */
+    float: right; /* Справа */
+    font-size: 28px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Цвет при наведении */
+    text-decoration: none; /* Подчеркивание */
+    cursor: pointer; /* Курсор при наведении */
+}
+
+#orderForm {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение полей */
+}
+
+#orderForm label {
+    margin-top: 10px; /* Отступ сверху */
+}
+
+#orderForm input, textarea {
+    padding: 10px; /* Отступы внутри */
+    margin-top: 5px; /* Отступ сверху */
+    border-radius: 5px; /* Скругленные углы */
+    border: 1px solid #ccc; /* Граница */
+}
+
+.order_button {
+    background-color: #007bff; /* Синий цвет */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругленные углы */
+    padding: 10px; /* Отступы внутри */
+    margin-top: 10px; /* Отступ сверху */
+    cursor: pointer; /* Курсор при наведении */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Темнее при наведении */
+}

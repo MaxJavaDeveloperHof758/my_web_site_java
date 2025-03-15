@@ -1,0 +1,28 @@
+body {
+    background-image: url('https://wallpapers.com/images/hd/marshall-headphone-monochrome-gxl4trd3q5zqh31v.jpg'); /* Замените на URL фона в стиле Marshall */
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    border-radius: 15px; /* Закругленные углы для карточки */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для карточки */
+    padding: 10px;
+    max-width: 300px;
+}
+
+.card-title {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Тень для заголовка */
+}
+
+input {
+    transition: background-color 0.3s;
+}
+
+input:focus {
+    background-color: #1a1a1a; /* Более светлый фон при фокусе */
+    outline: none; /* Убираем стандартный контур */
+    box-shadow: 0 0 5px #B9A86A; /* Тень при фокусе */
+}

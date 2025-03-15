@@ -1,0 +1,45 @@
+.category-buttons {
+    position: absolute;
+    top: 16%;
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.category-button {
+    background-color: #ff6633; /* Цвет фона */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Округлые углы */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    margin: 0 10px; /* Отступы между кнопками */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    transition: background-color 0.3s; /* Плавный переход при наведении */
+    display: flex; /* Для выравнивания иконки и текста */
+    align-items: center; /* Вертикальное выравнивание */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для кнопок */
+}
+
+.category-button i {
+    margin-right: 8px; /* Отступ между иконкой и текстом */
+}
+
+.category-button:hover {
+    background-color: #ff4500; /* Цвет фона при наведении */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Увеличенная тень при наведении */
+}
+.category-button.active {
+    background-color: #ff4500; /* Цвет фона для активной кнопки */
+    border: 2px solid white; /* Обводка для выделения */
+}
+.category-title {
+    position: absolute;
+    top: 12%;
+    text-align: center; /* Центрируем заголовок */
+    font-size: 1.8rem; /* Размер шрифта */
+    margin-bottom: 20px; /* Отступ снизу */
+    color: #333; /* Цвет текста */
+}
+.hidden {
+    display: none; /* Скрываем элемент */
+}

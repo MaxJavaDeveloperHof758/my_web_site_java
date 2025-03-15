@@ -1,0 +1,39 @@
+body {
+    background-image: url('https://wallpapers.com/images/hd/marshall-headphone-monochrome-gxl4trd3q5zqh31v.jpg'); /* Замените на URL фона в стиле Marshall */
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.card h2 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #B9A86A; /* Золотистый цвет */
+}
+
+.form-label {
+    font-weight: bold;
+    color: #B9A86A; /* Золотистый цвет */
+}
+
+.btn-primary {
+    background-color: #B9A86A; /* Золотистый цвет */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #a68d5a; /* Более темный золотистый цвет при наведении */
+}
+
+.input-group input {
+    background-color: #121212; /* Темный фон для полей ввода */
+    color: #fff; /* Белый текст */
+}
+
+.input-group input::placeholder {
+    color: #B9A86A; /* Цвет плейсхолдера */
+}

@@ -1,0 +1,29 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Светлый фон */
+    color: #333; /* Темный текст для контраста */
+}
+
+h1 {
+    color: #B9A86A; /* Цвет заголовка */
+}
+
+.container {
+    background-color: #ffffff; /* Белый фон для контейнера */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для контейнера */
+}
+
+.form-label {
+    font-weight: bold; /* Жирный текст для меток формы */
+}
+
+.btn-primary {
+    background-color: #B9A86A; /* Цвет кнопки отправки */
+    border: none; /* Убираем границу */
+}
+
+.btn-primary:hover {
+    background-color: #a08c55; /* Цвет кнопки при наведении */
+}

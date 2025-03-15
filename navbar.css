@@ -1,0 +1,58 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.my-form{
+    position: relative;
+    top: 80px;
+}
+.row{
+    position: relative;
+    left: 40px;
+    top: -100px;
+}
+.btn-warning{
+    position: relative;
+    top:-100px;
+    left: 40px;
+}
+.navbar-brand{
+    font-family: "Brush Script MT";
+    font-size: 1.5em;
+}
+.navigation-line{
+    position: absolute;
+    font-size: 15px;
+    top: 60px;
+    left: 5px;
+    padding: 10px;
+}
+.navigation-line ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Используем flex для расположения в строку */
+    align-items: center; /* Выравнивание по центру по вертикали */
+}
+.navigation-line li {
+    margin: 0 3px; /* Отступы между элементами */
+}
+
+.navigation-line a {
+    color: darkgrey;
+    font-weight: revert;
+    text-decoration: none;
+    padding: 3px 3px;
+}
+
+.navigation-line a:hover {
+    color: #111111;
+}
+
+.separator {
+    color: darkgrey; /* Цвет разделителя */
+    margin: 0 5px; /* Отступы вокруг разделителя */
+}

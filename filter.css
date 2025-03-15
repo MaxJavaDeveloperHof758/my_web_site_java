@@ -1,0 +1,22 @@
+.filter-block {
+    background-color: #f8f9fa; /* Цвет фона */
+    border: 1px solid #dee2e6; /* Граница */
+    border-radius: 0.5rem; /* Закругление углов */
+    padding: 15px; /* Отступы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    position: relative;
+    top: 150px;
+}
+
+.filter-block h2 {
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+.filter-block form {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-block input {
+    margin-bottom: 10px; /* Отступ для полей ввода */
+}

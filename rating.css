@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#stars_container{
+    min-height: 10vh;
+    display: block;
+    position: absolute;
+    top: 6em;
+    left: 27%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.card_star {
+    max-width: 12rem;
+    background: #fff;
+    margin: 0 1rem;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.star {
+    font-size: 3vh;
+    cursor: pointer;
+}
+
+.one {
+    color: rgb(255, 0, 0);
+}
+
+.two {
+    color: rgb(255, 106, 0);
+}
+
+.three {
+    color: rgb(251, 255, 120);
+}
+
+.four {
+    color: rgb(255, 255, 0);
+}
+
+.five {
+    color: rgb(24, 159, 14);
+}

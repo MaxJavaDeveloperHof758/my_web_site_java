@@ -1,0 +1,36 @@
+.product_reservation{
+    position: absolute;
+    top:425px;
+    left: 425px;
+    max-width: 500px; /* Максимальная ширина */
+    margin: auto; /* Центрирование формы */
+}
+.product_reservation .row {
+    margin-bottom: 15px; /* Отступы между элементами */
+}
+.product_reservation label {
+    font-weight: bold; /* Жирный шрифт для меток */
+    width: fit-content;
+}
+.product_reservation input {
+    width: 100%; /* Полная ширина для полей ввода */
+    padding: 10px; /* Внутренние отступы для полей ввода */
+    border: 1px solid #ccc; /* Рамка */
+    border-radius: 4px; /* Скругленные углы */
+    transition: border-color 0.3s; /* Плавный переход цвета рамки */
+}
+.product_reservation input:focus {
+    border-color: #007bff; /* Цвет рамки при фокусе */
+    outline: none; /* Убираем стандартный контур */
+}
+.btn-warning {
+    background-color: #ffc107; /* Цвет кнопки */
+    border: none; /* Убираем рамку */
+    border-radius: 4px; /* Скругленные углы */
+    padding: 10px 15px; /* Внутренние отступы */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.3s; /* Плавный переход цвета кнопки */
+}
+.btn-warning:hover {
+    background-color: #e0a800; /* Цвет кнопки при наведении */
+}

@@ -1,0 +1,22 @@
+.goods_remains{
+    position: absolute;
+    top: 6em;
+    left: 42%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.text_remains{
+    padding: 5px;
+    font-family: "Jost", sans-serif;
+}
+.icon_image{
+    margin-top: 10px;
+}
+.brand_name{
+    position: absolute;
+    top:5em;
+    left:55%;
+    width:100px;
+    height: 100px;
+}

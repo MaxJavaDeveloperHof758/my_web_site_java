@@ -1,0 +1,85 @@
+body {
+    overflow-x: hidden; /* Скрывает горизонтальную прокрутку */
+}
+.product_describing{
+    position: absolute;
+    top:44em;
+    right: 25px;
+    width: 400px;
+    min-height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.image-logo-container{
+    position: relative;
+    top: 0em;
+    left: 35%;
+    margin: 0;
+}
+.product_describing_text{
+    padding-right: 40px;
+    padding-left: 40px;
+    text-align: justify;
+    font-weight: normal;
+    font-size: 18px;
+}
+.product_describing_full_text{
+    position: relative;
+    top: 9.6em;
+    left: 2em;
+    width: 1000px;
+    min-height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.product_describing_title{
+    font-size: 25px;
+    padding: 20px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+}
+.product_describing_definition{
+    font-size: 18px;
+    padding: 20px;
+    font-weight: lighter;
+    text-align: justify;
+}
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Промежуток между изображениями */
+}
+.gallery img {
+    width: 100%; /* Ширина изображений */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+#my-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 300px;
+    padding: 50px;
+    width: 100%;
+}
+.featurette {
+    margin-bottom: 30px;
+}
+.featurette-heading {
+    font-weight: bold;
+    font-size: 24px;
+}
+.lead {
+    font-size: 16px;
+    color: #555;
+}
+.featurette-image {
+    border-radius: 8px; /* Закругление углов изображений */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для изображения */
+}
+.list-item{
+    position: relative;
+    left: 25px;
+}
+.list-item a{
+    color: darkred;
+}

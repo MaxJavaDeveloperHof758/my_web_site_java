@@ -1,0 +1,24 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Светлый фон */
+    color: #333; /* Темный текст для контраста */
+}
+
+h1, h2 {
+    color: #B9A86A;
+}
+
+blockquote {
+    border-left: 5px solid #B9A86A;
+    padding-left: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555; /* Более темный цвет для блока цитат */
+}
+
+.container {
+    background-color: #ffffff; /* Белый фон для контейнера */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для контейнера */
+}

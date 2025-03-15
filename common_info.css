@@ -1,0 +1,33 @@
+.common_info_container{
+    position: absolute;
+    top: 28%;
+    left: 450px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border-top: 0.5px solid;
+    border-bottom: 1px solid;
+    border-color: darkgrey;
+}
+.common_price_container{
+    position: absolute;
+    width: 400px;
+    text-align: center;
+    top: 47%;
+    right: 10%;
+}
+.price_info{
+    min-width: 200px;
+    padding: 20px;
+    text-align: center;
+}
+.price_info::after{
+    content: " руб./шт.";
+    font-size: large;
+    padding: 5px;
+}
+.disc_info{
+    padding: 20px;
+    text-align: justify;
+}

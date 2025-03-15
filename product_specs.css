@@ -1,0 +1,38 @@
+.product-specs {
+    position: absolute;
+    top: 19em;
+    left: 30em;
+    width: 25%;
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение строк */
+    margin: 20px 0;
+}
+
+.table-row {
+    display: flex; /* Горизонтальное расположение ячеек в строке */
+}
+
+.table-cell {
+    flex: 1; /* Равномерное распределение ячеек по ширине */
+    padding: 10px;
+    position: relative; /* Для псевдоэлемента */
+}
+
+/* Пунктирная линия от текста до границы ячейки */
+.table-cell:not(:empty)::after {
+    content: "";
+    border-bottom: 1px dotted black; /* Пунктирная линия */
+    position: absolute;
+    left: 0%; /* Сдвиг линии за пределы текста */
+    bottom: 5px; /* Отступ от нижней границы ячейки */
+    width: calc(100% - 10px); /* Ширина линии */
+    height: 1px; /* Высота линии */
+}
+#characters{
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 0 10px;
+    text-align: left;
+}
+
+

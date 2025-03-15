@@ -1,0 +1,51 @@
+footer {
+    background-color: #1c1c1c; /* Темный фон */
+    color: #d6d6d6; /* Светлый текст */
+    padding: 40px 20px; /* Отступы */
+    text-align: center; /* Центрируем текст */
+    border-top: 2px solid #444; /* Верхний градиент */
+    /* Убедитесь, что здесь нет свойств, которые фиксируют его положение */
+}
+
+.footer-logo {
+    font-size: 28px; /* Размер шрифта для логотипа */
+    font-weight: bold; /* Жирный шрифт */
+    color: #ffffff; /* Цвет логотипа */
+    margin-bottom: 20px; /* Отступ снизу */
+    letter-spacing: 1px; /* Расстояние между буквами */
+}
+
+.footer-links {
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.footer-links a {
+    color: #d6d6d6; /* Цвет ссылок */
+    margin: 0 15px; /* Отступы между ссылками */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.footer-links a:hover {
+    color: #c69c6d; /* Цвет ссылок при наведении */
+}
+
+.social-icons {
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.social-icons a {
+    color: #d6d6d6; /* Цвет иконок */
+    margin: 0 10px; /* Отступы между иконками */
+    font-size: 24px; /* Размер иконок */
+    transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.social-icons a:hover {
+    color: #c69c6d; /* Цвет иконок при наведении */
+}
+
+.footer-text {
+    margin-top: 10px; /* Отступ сверху */
+    font-size: 14px; /* Размер шрифта для текста */
+}
