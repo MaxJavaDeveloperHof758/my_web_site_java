@@ -1,0 +1,384 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main Page</title>
+
+  <link rel="stylesheet" href="/details_style.css">
+  <link rel="stylesheet" href="/rating.css">
+  <link rel="stylesheet" href="/remains.css">
+  <link rel="stylesheet" href="/common_info.css">
+  <link rel="stylesheet" href="/cart.css">
+  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/popup.css">
+  <link rel="stylesheet" href="/reservation.css">
+  <link rel="stylesheet" href="/product_disc.css">
+  <link rel="stylesheet" href="/product_specs.css">
+  <link rel="stylesheet" href="/buy_now.css">
+  <link rel="stylesheet" href="/delivery_terms.css">
+  <link rel="stylesheet" href="/footer.css">
+  <link rel="stylesheet" href="/index.css">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#7952b3">
+
+  <!-- Custom styles for this template -->
+  <link href="carousel.css" rel="stylesheet">
+</head>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">HeadPhonesShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Главная страница</a> <!--Эта ссылка рабочая -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/catalog">Товары</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contacts" tabindex="-1" aria-disabled="true">Контакты</a>
+          </li>
+        </ul>
+        <form method="GET" action="/catalog" class="d-flex" id="form_with_search_button">
+          <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <!--Реализация функционала с кнопками Войти/Выйти-->
+        <ul class="navbar-nav ms-auto">
+          <li th:if="${!isAuthenticated}">
+            <a class="nav-link" href="/login">Войти</a>
+          </li>
+          <li th:if="${isAuthenticated}">
+          <form action="#" th:action="@{/logout}" method="post" style="display:inline;" onsubmit="confirmLogout(event);">
+            <button type="submit" class="btn btn-danger" style="border: none;">Выйти</button>
+          </form>
+        </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<body>
+
+<nav class="navigation-line" th:each="el:${item}">
+  <ul>
+    <li><a href="/">Главная</a></li>
+    <li class="separator">></li>
+    <li><a href="/catalog">Каталог товаров</a></li>
+    <li class="separator">></li>
+    <li th:text="${el.getDisc()}"></li>
+  </ul>
+</nav>
+
+<!-- Карточка товара -->
+<div class="card" th:each="it:${item}">
+  <!-- Верхняя часть -->
+  <div class="card__top">
+    <!-- Изображение-ссылка товара -->
+    <a href="#" class="card__image">
+      <img th:src="${it.getUrl()}" alt="Наушники Marshall"/>
+    </a>
+    <!-- Скидка на товар -->
+    <div class="card__label">-10%</div>
+  </div>
+  <!-- Нижняя часть -->
+  <div class="card__bottom">
+    <!-- Цены на товар (с учетом скидки и без)-->
+    <div class="card__prices">
+      <div class="card__price card__price--discount" th:text="${it.getPrice_discount()}"></div>
+      <div class="card__price card__price--common" th:text="${it.getPrice()}"></div>
+    </div>
+    <!-- Ссылка-название товара -->
+    <h1 class="card__title" th:text="${it.getDisc()}"></h1>
+    <!-- Кнопка добавить в корзину -->
+    <button class="card__add">В корзину</button>
+  </div>
+</div>
+
+<div class="product-specs">
+  <div class="table-row">
+    <div class="table-cell" id="characters">Характеристики:</div>
+    <div class="table-cell"></div>
+  </div>
+  <div class="table-row">
+    <div class="table-cell">Конструкция</div>
+    <div class="table-cell">накладные</div>
+  </div>
+  <div class="table-row">
+    <div class="table-cell">Тип</div>
+    <div class="table-cell">наушники</div>
+  </div>
+  <div class="table-row">
+    <div class="table-cell">Беспроводные</div>
+    <div class="table-cell">Да</div>
+  </div>
+  <div class="table-row">
+    <div class="table-cell">Тип интерфейса</div>
+    <div class="table-cell">Bluetooth</div>
+  </div>
+  <div class="table-row">
+    <div class="table-cell">Материал</div>
+    <div class="table-cell">кожа</div>
+  </div>
+  <div class="table-row">
+    <div class="table-cell">Штекер</div>
+    <div class="table-cell">3.5 мм</div>
+  </div>
+</div>
+
+<!--Создаем звездный рейтинг-->
+<div class="card_star" id="stars_container">
+  <span onclick="updateRating(1)"
+        class="star">★
+        </span>
+  <span onclick="updateRating(2)"
+        class="star">★
+        </span>
+  <span onclick="updateRating(3)"
+        class="star">★
+        </span>
+  <span onclick="updateRating(4)"
+        class="star">★
+        </span>
+  <span onclick="updateRating(5)"
+        class="star">★
+        </span>
+  <h6 id="output">
+    Rating is: 0/5
+  </h6>
+</div>
+
+<div class="goods_remains">
+  <img class="icon_image" width="10px" height="10px" src="https://avatars.mds.yandex.net/i?id=97bcf560b7433fe8a7e76f881fde54276c506893-8565700-images-thumbs&n=13" alt="Значок">
+  <h6 class="text_remains">Наличие: много</h6>
+</div>
+<img class="brand_name" src="https://api.fortress.com.hk/medias/Marshall.png?context=bWFzdGVyfHJvb3R8MTMzNzd8aW1hZ2UvcG5nfGFEZGtMMmd3TWk4NU5USTFNakk0TlRBek1EY3dMbkJ1Wnd8NGEyMDlmNzE4ODA3MjJhYTNmODkwMzM4NmIxZDRkMDY5N2QyYWE1MGVhYzc2YWFjZDhiNWQ2NGFkZDA1YmRjYQ" alt="Marshall logo">
+
+<!--Блок с полным описанием товара-->
+<div class="common_info_container" th:each="it:${item}">
+    <p class="disc_info" th:text="${it.getFull_disc()}"></p>
+  </div>
+
+<!--Блок с ценой товара-->
+<div class="common_price_container" th:each="it:${item}">
+  <h2 class="price_info" th:text="${it.getPrice_discount()}"></h2>
+</div>
+
+<!--Разметка корзины товаров-->
+<button class="cart" id="cart">
+  <img class="cart__image" src="https://static.tildacdn.com/tild3938-6535-4466-a531-616432663735/cart-icon-png-white-.jpg" alt="Cart" />
+  <div class="cart__num" id="cart_num">0</div>
+</button>
+
+<!--Разметка окна оформления заказа-->
+<div class="popup" th:each="it:${item}">
+  <div class="popup__container" id="popup_container">
+    <div class="popup__item">
+      <h1 class="popup__title">Оформление заказа</h1>
+    </div>
+    <div class="popup__item" id="popup_product_list">
+      <div class="popup__product">
+        <div class="popup__product-wrap">
+          <img src="https://cdn1.ozone.ru/s3/multimedia-1-c/7007733840.jpg" alt="Наушники Marshall Major IV" class="popup__product-image"/>
+          <h2 class="popup__product-title" th:text="${it.getDisc()}"></h2>
+        </div>
+        <div class="popup__product-wrap">
+          <div class="popup__product-price" th:text="${it.getPrice_discount()}"></div>
+          <button class="popup__product-delete">
+            <span>CONFIRM DELETE</span>
+            <svg class="popup__product-delete-svg" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="popup__item">
+      <div class="popup__cost">
+        <h2 class="popup__cost-title">Итого</h2>
+        <output class="popup__cost-value" id="popup_cost" th:text="${it.getPrice()}"></output>
+      </div>
+      <div class="popup__cost">
+        <h2 class="popup__cost-title">Скидка</h2>
+        <output class="popup__cost-value" id="popup_discount">-10%</output>
+      </div>
+      <div class="popup__cost">
+        <h2 class="popup__cost-title">Итого со скидкой</h2>
+        <output class="popup__cost-value" id="popup_cost_discount" th:text="${it.getPrice_discount()}"></output>
+      </div>
+    </div>
+    <button class="popup__close" id="popup_close">&times;</button>
+  </div>
+</div>
+
+<!--Кнопка "Купить сейчас"-->
+<button class="buy-now" id="buyNowBtn">Купить сейчас</button>
+<!-- Модальное окно -->
+<div class="modal" id="orderModal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>Оставьте ваши данные для заказа</h2>
+    <form id="orderForm" method="post">
+      <label for="name">Имя:</label>
+      <input name="name" type="text" id="name" required>
+
+      <label for="phone">Телефон:</label>
+      <input name="contact" type="tel" id="phone" required>
+
+      <label for="message">Сообщение:</label>
+      <textarea name="message" id="message"></textarea>
+
+      <button class="order_button" type="submit">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<!--Разметка условий доставки товара-->
+<div class="delivery-product-terms-in-stock">
+  <div class="delivery-product-terms delivery-product-terms-minsk">
+    <div class="delivery-product-terms-caption">Доставка по Минску</div>
+    <span class="green">БЕСПЛАТНО</span>
+  </div>
+  <div class="delivery-product-terms delivery-product-terms-rb">
+    <div class="delivery-product-terms-caption">Доставка по РБ</div>
+    <span class="green">БЕСПЛАТНО</span>
+  </div>
+  <div class="delivery-product-terms delivery-product-terms-pickup">
+    <div class="delivery-product-terms-caption">Самовывоз</div>
+    <span class="green">БЕСПЛАТНО</span>
+  </div>
+</div>
+
+<!--Описание продукции Marshall-->
+<div class="product_describing">
+  <div class="image-logo-container">
+  <img class="logo_name" width="150px" height="150px" src="https://i.pinimg.com/736x/1a/70/96/1a7096822b35c33b3388ab42bc4e6abb.jpg" alt="Marshall logo">
+  </div>
+  <h4 class="product_describing_text">Marshall — это всемирно известный производитель
+    гитарных усилителей и кабинетов из Англии и один
+    из самых культовых брендов в истории рок-н-ролла.
+    Все началось в маленьком магазине музыкальных
+    инструментов в далеких 60-х, когда Джим Маршалл
+    старался обеспечить местных гитаристов звуком,
+    которого те желали больше всего на свете — звуком
+    более мощным, тяжелым и насыщенным, чем давали
+    усилители того времени (в частности американские Fender).</h4>
+  <ul class="ui-autocomplete-category">
+    <li class="list-item">
+      <a href="">Все товары категории</a>
+    </li>
+  </ul>
+  </div>
+
+<div class="product_describing_full_text">
+<h3 class="product_describing_title">Описание</h3>
+<h4 class="product_describing_definition">Встречайте наушники серии Major, культовые наушники от Marshall, с более чем 80 часами
+  беспроводного воспроизведения, беспроводной зарядкой и новым
+  улучшенным эргономичным дизайном. Более чем три полных дня
+  использования вы можете не беспокоиться о том, что ваши
+  наушники перестанут работать, когда они вам понадобятся.
+  Специально настроенные динамики обеспечивают ревущие басы,
+  плавные средние и блестящие высокие частоты для богатого,
+  непревзойденного звука, который вы никогда не захотите отключать.</h4>
+  <div class="gallery">
+    <!--Фото 1-->
+    <img src="https://avatars.mds.yandex.net/get-mpic/7979270/img_id3914000720728940474.jpeg/orig" alt="Наушники Marshall">
+    <!--Фото 2-->
+    <img src="https://trendcase.ru/wa-data/public/site/photo/marshall-major2.jpg" alt="Изображение 2">
+    <!--Фото 3-->
+    <img src="https://cdn1.ozone.ru/s3/multimedia-q/6547183574.jpg" alt="Изображение 3">
+  </div>
+</div>
+
+<div id="my-container">
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">УЛУЧШЕННЫЙ ЭРГОНОМИЧНЫЙ ДИЗАЙН<span class="text-muted"></span></h2>
+      <p class="lead">Новый, улучшенный эргономичный дизайн линейки Major означает,
+        что при глубоком погружении в музыку, десятый час использования так же
+        удобен, как и первый. Амбушюры мягче на ощупь и более точно соответствуют форме вашего уха.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://avatars.mds.yandex.net/get-mpic/5313421/img_id8252136160438790557.jpeg/orig" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title></img>
+    </div>
+  </div>
+
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading">КУЛЬТОВЫЙ ДИЗАЙН MARSHALL<span class="text-muted"></span></h2>
+      <p class="lead">Major сочетает в себе повышенную комфортную эксплуатацию
+        с классическими элементами Marshall, создавая культовый и инновационный
+        дизайн. Новый складной зажим означает, что Major складывается в еще
+        более компактный размер, а ушные вкладыши защищены от чрезмерного износа.
+        Он отличается тактильной и эффективной кнопкой управления, текстурированным
+        черным винилом и надписью Marshall, а также прочностью, необходимой для
+        повседневной жизни.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://ir.ozone.ru/s3/multimedia-1/6582517849.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+    </div>
+  </div>
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">80+ ЧАСОВ БЕСПРОВОДНОЙ ИГРЫ<span class="text-muted"></span></h2>
+      <p class="lead">Наушники обеспечивает более 80 часов беспроводного воспроизведения
+        с возможностью быстрой зарядки – всего 15 минут зарядки обеспечат вам до 15 часов
+        прослушивания. Это наушники, действительно рассчитанные на долгую жизнь.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://www.marshallheadphones.com/on/demandware.static/-/Library-Sites-SharedLibrary-Marshall/default/dwcc06ed19/images/categories/headphones/mid-anc/desktop/slideshow/Mid-ANC-Show-More-06-Desktop@3x.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"></img>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
+</div><!-- /.container -->
+
+<footer>
+  <div class="footer-logo">Marshall</div>
+  <div class="footer-links">
+    <a href="/">Главная</a>
+    <a href="/about">О нас</a>
+    <a href="/catalog">Услуги</a>
+    <a href="/contacts">Контакты</a>
+    <a href="/privacy-policy">Политика конфиденциальности</a>
+  </div>
+  <div class="social-icons">
+    <a href="#" title="Facebook">📘</a>
+    <a href="#" title="Twitter">🐦</a>
+    <a href="#" title="Instagram">📷</a>
+    <a href="#" title="LinkedIn">🔗</a>
+  </div>
+  <div class="footer-text">
+    <p>&copy; 2025 Marshall. Все права защищены.</p>
+  </div>
+</footer>
+
+<script src="/js/rating.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/order_btn.js"></script>
+<script src="/js/logout.js"></script>
+</body>
+</html>

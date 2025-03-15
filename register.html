@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регистрация | HeadPhonesShop</title>
+  <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+  <link rel="stylesheet" href="/register.css"> <!-- Ваш файл стилей -->
+  <link rel="stylesheet" href="/navbar.css">
+</head>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">HeadPhonesShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Главная страница</a> <!--Эта ссылка рабочая -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/catalog">Товары</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contacts" tabindex="-1" aria-disabled="true">Контакты</a>
+          </li>
+        </ul>
+        <form method="GET" action="/catalog" class="d-flex" id="form_with_search_button">
+          <input class="form-control me-2 flex-grow-1" name="search" type="search" placeholder="Поиск" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" style="width: 100px;">Search</button>
+        </form>
+        <!--Реализация функционала с кнопками Войти/Выйти-->
+        <ul class="navbar-nav ms-auto">
+          <li th:if="${!isAuthenticated}">
+            <a class="nav-link" href="/login">Войти</a>
+          </li>
+          <li th:if="${isAuthenticated}">
+            <form action="#" th:action="@{/logout}" method="post" style="display:inline;" onsubmit="confirmLogout(event);">
+              <button type="submit" class="btn btn-danger" style="border: none;">Выйти</button>
+            </form>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<body class="bg-dark text-light">
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="card shadow" style="width: 400px; background-color: #121212; border: 1px solid #B9A86A;">
+    <h2 class="text-center mb-4 mt-3" style="color: #B9A86A;">Регистрация</h2>
+    <form action="#" th:action="@{/register}" th:object="${user}" method="post" onsubmit="return validateRegistration()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Имя пользователя</label>
+        <input type="text" class="form-control bg-dark text-light border-0" id="username" th:field="*{username}" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control bg-dark text-light border-0" id="email" th:field="*{email}" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Пароль</label>
+        <input type="password" class="form-control bg-dark text-light border-0" id="password" th:field="*{password}" required>
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Подтверждение пароля</label>
+        <input type="password" class="form-control bg-dark text-light border-0" id="confirmPassword" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100" style="background-color: #B9A86A; border: none;">Зарегистрироваться</button>
+    </form>
+    <div class="text-center mt-3">
+      <p>Уже зарегистрированы? <a th:href="@{/login}" class="text-light">Войдите здесь</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/register.js"></script>
+</body>
+</html>

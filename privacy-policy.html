@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Политика конфиденциальности | HeadPhonesShop</title>
+  <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/index.css}">
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">HeadPhonesShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Главная страница</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/catalog">Товары</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contacts">Контакты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/privacy-policy">Политика конфиденциальности</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li th:if="${!isAuthenticated}">
+            <a class="nav-link" href="/login">Войти</a>
+          </li>
+          <li th:if="${isAuthenticated}">
+            <form action="#" th:action="@{/logout}" method="post" style="display:inline;">
+              <button type="submit" class="btn btn-danger" style="border: none;">Выйти</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container mt-5 pt-5">
+  <h1 class="text-center">Политика конфиденциальности</h1>
+  <p>Ваша конфиденциальность важна для нас. Эта политика конфиденциальности объясняет, как мы собираем, используем и защищаем ваши личные данные.</p>
+
+  <h2 class="mt-4">Сбор информации</h2>
+  <p>Мы можем собирать информацию о вас, когда вы используете наш сайт, включая, но не ограничиваясь, имя, адрес электронной почты и другую контактную информацию.</p>
+
+  <h2 class="mt-4">Использование информации</h2>
+  <p>Мы используем собранную информацию для обработки заказов, улучшения нашего сервиса и связи с вами.</p>
+
+  <h2 class="mt-4">Безопасность данных</h2>
+  <p>Мы принимаем разумные меры для защиты ваших данных, однако не можем гарантировать их абсолютную безопасность.</p>
+
+  <h2 class="mt-4">Изменения в политике конфиденциальности</h2>
+  <p>Мы можем периодически обновлять нашу политику конфиденциальности. Мы уведомим вас о любых изменениях, публикуя новую политику на этой странице.</p>
+
+  <h2 class="mt-4">Контактная информация</h2>
+  <p>Если у вас есть вопросы по данной политике, пожалуйста, свяжитесь с нами по email: info@marshall.com</p>
+
+  <div class="text-center mt-4">
+    <a th:href="@{/}" class="btn btn-outline-dark">Вернуться на главную страницу</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

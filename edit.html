@@ -1,0 +1,128 @@
+<!doctype html>
+<head xmlns="http://www.w3.org/1999/html">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+    <link rel="stylesheet" href="/index.css">
+    <meta name="theme-color" content="#7952b3">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        .my-form{
+            position: relative;
+            top: 80px;
+            left: 20px;
+        }
+        .row{
+            position: relative;
+            left: 40px;
+            top: -100px;
+        }
+        .btn-warning{
+            position: relative;
+            top:-100px;
+            left: 40px;
+        }
+        .navbar-brand{
+            font-family: "Brush Script MT";
+            font-size: 1.5em;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+</head>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">HeadPhonesShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Главная страница</a> <!--Эта ссылка рабочая -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/catalog">Товары</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about" tabindex="-1" aria-disabled="true">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacts" tabindex="-1" aria-disabled="true">Контакты</a>
+                    </li>
+                </ul>
+                <form method="GET" action="/catalog" class="d-flex" id="form_with_search_button">
+                    <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <!--Реализация функционала с кнопками Войти/Выйти-->
+                <ul class="navbar-nav ms-auto">
+                    <li th:if="${!isAuthenticated}">
+                        <a class="nav-link" href="/login">Войти</a>
+                    </li>
+                    <<li th:if="${isAuthenticated}">
+                    <form action="#" th:action="@{/logout}" method="post" style="display:inline;" onsubmit="confirmLogout(event);">
+                        <button type="submit" class="btn btn-danger" style="border: none;">Выйти</button>
+                    </form>
+                </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+
+<form class="my-form" method="post">
+    <div th:each="el:${model}">
+    <div class="mb-3">
+        <label for="firstInput" class="form-label">Изменить заголовок</label>
+        <input name="title" th:value="${el.getTitle()}" type="text" class="form-control" id="firstInput">
+    </div>
+    <div class="mb-3">
+        <label for="secondInput" class="form-label">Изменить краткое описание</label>
+        <input name="disc" th:value="${el.getDisc()}" type="text" class="form-control" id="secondInput">
+    </div>
+        <div class="mb-3">
+            <label for="thirdInput" class="form-label">Изменить полное описание</label>
+            <input name="fulldisc" th:value="${el.getFull_disc()}" type="text" class="form-control" id="thirdInput">
+        </div>
+        <div class="mb-3">
+            <label for="forthInput" class="form-label">Изменить цену</label>
+            <input name="price" th:value="${el.getPrice()}" type="text" class="form-control" id="forthInput">
+        </div>
+        <div class="mb-3">
+            <label for="fifthInput" class="form-label">Изменить цену со скидкой</label>
+            <input name="price_discount" th:value="${el.getPrice_discount()}" type="text" class="form-control" id="fifthInput">
+        </div>
+    <div class="mb-3">
+        <label for="sixthInput" class="form-label">Изменить фотографию</label>
+        <input name="url" type="text" class="form-control" id="sixthInput">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<script src="/js/logout.js"></script>
+</body>
+</html>

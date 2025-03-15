@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Личный кабинет | HeadPhonesShop</title>
+  <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+  <link rel="stylesheet" href="/dashboard.css"> <!-- Ваш файл стилей -->
+</head>
+<body class="bg-dark text-light">
+<div class="container mt-5">
+  <div class="card shadow-lg" style="background-color: #121212; border: 1px solid #B9A86A;">
+    <div class="card-body text-center">
+      <h1 class="card-title" style="color: #B9A86A;">Добро пожаловать, <span th:text="${username}"></span>!</h1>
+      <p class="card-text">Это ваш личный кабинет.</p>
+      <a th:href="@{/profile/edit}" class="btn btn-outline-light me-2">Редактировать профиль</a> <!-- Кнопка редактирования профиля -->
+      <a th:href="@{/}" class="btn btn-outline-light me-2">Вернуться на главную</a>
+      <a th:href="@{/logout}" class="btn btn-danger">Выйти</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
